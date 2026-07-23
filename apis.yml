@@ -28,7 +28,7 @@ tags:
 - Consumer Finance
 - Data Aggregation
 created: '2026-07-23'
-modified: '2026-07-23'
+modified: '2026-07-23T15:30:00Z'
 specificationVersion: '0.19'
 apis: []
 common:
@@ -36,6 +36,10 @@ common:
   url: https://www.vystarcu.org/
 - type: LinkedIn
   url: https://www.linkedin.com/company/vystar-credit-union
+- type: DomainSecurity
+  url: security/vystar-domain-security.yml
+- type: LLMsTxt
+  url: llms/vystar-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

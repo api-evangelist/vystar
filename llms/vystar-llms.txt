@@ -1,0 +1,20 @@
+# VyStar Credit Union
+
+> VyStar Credit Union is a member-owned, not-for-profit financial cooperative headquartered in Jacksonville, Florida, and one of the largest US credit unions (~$14B assets, 950,000+ members, ~80 branches across Florida and Georgia). It is state-chartered and federally insured by the NCUA. VyStar publishes no public, first-party developer API: there is no developer portal, no OpenAPI/Swagger definition, and no documented first-party data-access API. Consumer-permissioned account data is shared with third parties through financial-data aggregators rather than a first-party open-banking API, and the emerging CFPB Section 1033 Personal Financial Data Rights rule is the relevant regulatory horizon.
+
+## API posture
+
+- No public, first-party developer API surface (confirmed by probing: developer.vystarcu.org 403, developers.vystarcu.org 404, api.vystarcu.org unresolved, /developers a Radware/ShieldSquare bot-wall).
+- Open finance is aggregator-mediated (e.g. Plaid/MX/Finicity/Akoya); no FDX participation or Section 1033 data-access implementation is published.
+- The public site and /.well-known/ paths are behind Radware/ShieldSquare bot protection, so no machine-readable contract or discovery documents are accessible.
+
+## Links
+
+- [Website](https://www.vystarcu.org/)
+- [LinkedIn](https://www.linkedin.com/company/vystar-credit-union)
+
+## Artifacts
+
+- [APIs.json](https://raw.githubusercontent.com/api-evangelist/vystar/refs/heads/main/apis.yml)
+- [Reviewer finding](https://raw.githubusercontent.com/api-evangelist/vystar/refs/heads/main/review.yml)
+- [Domain security probe](https://raw.githubusercontent.com/api-evangelist/vystar/refs/heads/main/security/vystar-domain-security.yml)

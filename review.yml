@@ -1,0 +1,78 @@
+aid: vystar
+name: VyStar Credit Union
+review:
+  question: Does VyStar Credit Union expose a public, first-party developer API or a documented open-finance data-access API?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    VyStar Credit Union publishes no public, first-party developer API and no
+    downloadable API definition. It is a member-owned, state-chartered US
+    credit union (Jacksonville, FL), and like nearly all US credit unions it
+    participates in open finance only indirectly. Probing the network turned up
+    no usable developer surface: developer.vystarcu.org returns HTTP 403,
+    developers.vystarcu.org returns HTTP 404, and api.vystarcu.org does not
+    resolve (connection failure). A /developers path on the marketing site
+    returns HTTP 200 but resolves to a Radware/ShieldSquare bot-protection
+    captcha page (redirecting to validate.perfdrive.com), not an API portal or
+    API documentation. No OpenAPI/Swagger, no API reference, and no documented
+    authentication model (OAuth2/OIDC, API key, or mTLS) were found because no
+    public API surface exists to describe.
+
+    US open finance is voluntary and fragmented — there is no single mandated
+    open-banking contract as in the UK or Australia. VyStar's honest posture is
+    aggregator-mediated: consumer-permissioned account data is shared with third
+    parties through financial-data aggregators rather than through a first-party
+    API. No FDX (Financial Data Exchange) participation and no CFPB Section 1033
+    data-access implementation could be confirmed from public documentation as
+    of the review date; the emerging Section 1033 Personal Financial Data Rights
+    rule is the relevant regulatory horizon but no VyStar-specific posture is
+    published. This record is an honest identity-only stub: a real US credit
+    union with no public API surface.
+  developerPortal:
+    firstParty: false
+    probed:
+    - url: https://developer.vystarcu.org
+      status: 403
+      note: Host exists at the edge but is not publicly served; no accessible developer documentation.
+    - url: https://developers.vystarcu.org
+      status: 404
+      note: No such host/page.
+    - url: https://api.vystarcu.org
+      status: 000
+      note: Does not resolve / connection failure; no public API host.
+    - url: https://vystarcu.org/developers
+      status: 200
+      note: Returns a Radware/ShieldSquare captcha page (redirects to validate.perfdrive.com), not an API developer portal.
+  openFinancePosture:
+    fdxParticipant: unconfirmed
+    section1033Posture: none-published
+    aggregatorAccess: true
+    aggregatorNote: Consumer-permissioned data access is aggregator-mediated (e.g. Plaid/MX/Finicity/Akoya) rather than via a first-party VyStar API; no first-party open-banking API is documented.
+  authModel: none-documented
+  specProvenance: none
+  transports:
+  - protocol: REST
+    documented: false
+    note: No public REST API is documented for VyStar Credit Union.
+sources:
+- url: https://www.vystarcu.org/
+  type: Website
+  note: Primary marketing/member site; entire site is behind Radware/ShieldSquare bot protection.
+- url: https://developer.vystarcu.org
+  type: Probe
+  note: HTTP 403 — host present but not publicly served.
+- url: https://vystarcu.org/developers
+  type: Probe
+  note: HTTP 200 but resolves to a captcha bot-wall, not a developer portal.
+- url: https://www.linkedin.com/company/vystar-credit-union
+  type: LinkedIn
+  note: Confirmed live company page (HTTP 200).
+actions:
+  apisYmlUpdated: true
+  openapiHarvested: false
+  reason: |
+    No public API surface exists to harvest. The record captures VyStar's
+    identity and its honest aggregator-only open-finance posture. apis[] is
+    left empty rather than padded with fabricated entries.

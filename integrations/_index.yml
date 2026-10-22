@@ -35,3 +35,42 @@
     identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
   status: not-a-workflow
   arazzo: null
+- slug: vystar-ncua-federally-insured-credit-unions
+  label: NCUA federally insured credit unions
+  partner_name: NCUA federally insured credit unions
+  category: US NCUA federally insured credit union charter
+  type: register
+  channel: regulator-register
+  evidence: https://www.ncua.gov/files/publications/analysis/federally-insured-credit-union-list-june-2025.zip
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: NCUA federally insured credit unions
+    spec_file: null
+    standard: null
+    role: insured-credit-union
+    registrations:
+    - registered_name: VYSTAR
+      register_status: active
+      register_country: US
+      register_id: '68490'
+      matched_domain: vystarcu.org
+      matched_by: domain
+      licences:
+      - NCUA federally insured credit union (charter 68490)
+      evidence_url: https://mapping.ncua.gov/ResearchCreditUnion.aspx
+      state: FL
+      trade_names:
+      - VyStar Title Agency LLC
+      - VyStar Investment Services
+      - VyStar Financial Group, LLC
+      - VyStar Credit Union
+      - VyStar
+      - VyStar Insurance Agency, LLC.
+      - 121 Financial Credit Union
+    signal_note: 'participation only: a federal deposit-insurance charter on a regulator register; no API conformance
+      is published by this register'
+    detected_by: sweep-us-bank-credit-union-registers.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
